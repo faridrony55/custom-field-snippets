@@ -1,0 +1,68 @@
+ <p class="line-item-property__field">
+  <label for="upload-a-file">AUpload a File</label>
+  <input required class="required" id="upload-a-file" type="file" name="properties[Upload a File]">
+</p>
+
+
+
+<p class="line-item-property__field">
+  <label for="add-text">Add Text</label>
+  <input required class="required" id="add-text" type="text" name="properties[Add Text]">
+</p>
+
+
+<p class="line-item-property__field">
+  <label for="add-text">Add Text</label>
+  <textarea required class="required" id="add-text" name="properties[Add Text]"></textarea>
+</p>
+
+<p class="line-item-property__field">
+  <label>Select One of Theme</label><br>
+  <input required class="required" type="radio" name="properties[Select One of Theme]" value="Blue"> <span>Blue</span><br>
+  <input required class="required" type="radio" name="properties[Select One of Theme]" value="Green"> <span>Green</span><br>
+  <input required class="required" type="radio" name="properties[Select One of Theme]" value="Red"> <span>Red</span><br>
+</p>
+
+
+<p class="line-item-property__field">
+  <label>Select One of Theme</label><br>
+  <select required class="required" id="select-one-of-theme" name="properties[Select One of Theme]">
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+    <option value="Red">Red</option>
+  </select>
+</p>
+
+
+<p class="line-item-property__field">
+  <input type="hidden" name="properties[Upload a File]" value="No">
+  <input id="upload-a-file" required class="required" type="checkbox" name="properties[Upload a File]" value="Yes">
+  <label for="upload-a-file">Check this</label>
+</p>
+
+
+<p class="line-item-property__field">
+  <label>Multiple Check</label><br>
+  <input required class="required" type="checkbox" id="Blue" hidden-data="Multiple-Check" onchange="fillHidden('Multiple-Check')" value="Blue"><label for="Blue">Blue</label><br>
+  <input required class="required" type="checkbox" id="Green" hidden-data="Multiple-Check" onchange="fillHidden('Multiple-Check')" value="Green"><label for="Green">Green</label><br>
+  <input required class="required" type="checkbox" id="Red" hidden-data="Multiple-Check" onchange="fillHidden('Multiple-Check')" value="Red"><label for="Red">Red</label><br>
+  <input type="hidden" id="Multiple-Check" name="properties[Multiple Check]">
+  <script>
+    function fillHidden(hiddenname) {
+    var checkboxes = document.querySelectorAll('[hidden-data="'+hiddenname+'"]');
+    var hiddenfield = document.getElementById(hiddenname);
+    hiddenfield.value = ""
+    var i;
+    for (i = 0; i < checkboxes.length; i++) {
+      var x = checkboxes[i];
+      if(x.checked){
+        if(hiddenfield.value==""){
+          hiddenfield.value = x.value;
+          }else{
+          hiddenfield.value = hiddenfield.value + ", " + x.value; 
+          } 
+        }
+      }
+    }
+  </script>
+</p>
